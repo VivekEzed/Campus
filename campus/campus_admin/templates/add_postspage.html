@@ -1,0 +1,53 @@
+{% extends "base2.html" %}
+{% block content %}
+ <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Add Posts</h2>
+                <div class="page_link">
+                  <a href={% url 'adminhomepage' %}>Home</a>
+                  <a href={% url 'posts' %}>Posts</a>
+                  <a href="">Add Posts</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sample-text-area">
+    <div class="container">
+     <div class="section-top-border">
+        <div class="row">
+          <div class="col-lg-8 col-md-8">
+            <h3 class="mb-30 title_color">Create New Post</h3>
+            <u>{{msg}}</u>
+            <form method="POST" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="mt-10">
+                <input type="text" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'"
+                 required class="single-input">
+              </div>
+              <div class="mt-10">
+                <textarea name="description" class="single-textarea" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'"
+                 required></textarea>
+              </div>
+
+              <div class="mt-10">
+                Choose an image
+                <input type="file" name="image" placeholder="Image" onfocus="this.placeholder = ''" onblur="this.placeholder = ''"
+                 required class="single-input">
+              </div>
+              <br><br>
+              <button type="submit" value="submit" class="btn primary-btn">
+                  Save
+                </button>
+            </form>
+          </div>
+    </section>
+{% endblock %} 

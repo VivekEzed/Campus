@@ -1,0 +1,54 @@
+{% extends "userbase2.html" %}
+{% block content %}
+{% load static %}
+
+ <title>Offers</title>
+<!--================Home Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Offers</h2>
+                <div class="page_link">
+                  <a href={% url 'userhomepage' %}>Home</a>
+                  <a href={% url 'user_offers' %}>Offers</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ <section class="">
+         
+        <div class="whole-wrap">
+        <div class="container">
+            <div class="section-top-border">
+                <h4>{{msg}}</h4>
+                <div class="col-md-12 text-right">
+        </div>
+                {% for Offers in offers %}
+                <h3 class="mb-30 title_color">{{Offers.title}}</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/media/{{Offers.image}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20 left-align-p">
+                        <p> <u>Posted in:{{Offers.date}},{{Offers.time}}</u></p>
+                        <p>{{Offers.description}}</p>   
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
+            </div>
+            <br>
+            
+</div></div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends "userbase1.html"  %}
+{% block content %}
+{% load static %}
+
+<section class="home_banner_area">
+      <div class="banner_inner">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="banner_content text-center">
+                <p class="text-uppercase">
+                  Best online education service In the world
+                </p>
+                <h2 class="text-uppercase mt-4 mb-5">
+                  One Step Ahead This Season
+                </h2>
+                <div>
+                  <a href="#" class="primary-btn2 mb-3 mb-sm-0">learn more</a>
+                  <a href="#" class="primary-btn ml-sm-3 ml-0">see course</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="feature_area section_gap_top">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="main_title">
+              <h2 class="mb-3">Our Offers</h2>
+              <br><br>
+              <p>
+                {{msg}}
+              </p>
+
+        {% for Offers in offerss %}
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/media/{{Offers.image}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20 left-align-p">
+                      <h3 class="mb-30 title_color">{{Offers.title}}</h3>
+                        <p> <u>Posted in:{{Offers.date}},{{Offers.time}}</u></p>
+                        <p>{{Offers.description}}</p>   
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
+
+
+
+            </div>
+          </div>
+        </div>
+        <!-- {% for Offers in offerss %}
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="single_feature">
+              <div class="icon"><span class="flaticon-student"></span></div>
+              <div class="desc">
+                <h4 class="mt-3 mb-2">Scholarship Facility</h4>
+                <p>
+                  One make creepeth, man bearing theira firmament won't great
+                  heaven
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %} -->
+  
+        </div>
+      </div>
+    </section>
+    <!--================ End Feature Area =================-->
+
+    <!--================ Start Popular Courses Area =================-->
+    <div class="popular_courses">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="main_title">
+              <h2 class="mb-3">Posts</h2>
+              <p>
+                Our posts
+              </p>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="row">
+          <!-- single course -->
+          <div class="col-lg-12">
+            <div class="owl-carousel active_course">
+             
+{% for Posts in postss %}
+              <div class="single_course">
+                <div class="course_head">
+                  <img class="img-fluid" src="{% static '/media/{{Posts.image}}' %}" alt="" />
+                </div>
+                <div class="course_content">
+                  <h4 class="mb-3">
+                    <a href="course-details.html">{{Posts.title}}</a>
+                  </h4>
+                  <p>
+                    {{Posts.description}}
+                  </p>
+                  <div
+                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
+                  >
+                  {% endfor %}
+                    <!-- <div class="authr_meta">
+                      <img src="{% static 'img/courses/author3.png' %}" alt="" />
+                      <span class="d-inline-block ml-2">Cameron</span>
+                    </div> -->
+                    <!-- <div class="mt-lg-0 mt-3">
+                      <span class="meta_info mr-4">
+                        <a href="#"> <i class="ti-user mr-2"></i>25 </a>
+                      </span>
+                      <span class="meta_info"
+                        ><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span
+                      >
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!--================ End Popular Courses Area =================-->
+
+
+{% endblock %}

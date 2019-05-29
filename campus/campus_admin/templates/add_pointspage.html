@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+{% block content %}
+   <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Add Points</h2>
+                <div class="page_link">
+                  <a href={% url 'adminhomepage' %}>Home</a>
+                  <a href={% url 'points' %}>Points</a>
+                  <a href="">Add Point</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sample-text-area">
+		<div class="container">
+
+     <div class="">
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<h3 class="mb-30 title_color">Add Points</h3>
+						<u>{{msg}}</u>
+						<form method="POST" action={% url 'addpoints' %}>
+							{% csrf_token %}
+							<div class="mt-10">
+								<input type="text" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'"
+								 required class="single-input">
+							</div>
+						<div class="mt-10">
+								<input type="number" name="point" placeholder="Point" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Point'"
+								 required class="single-input">
+							</div>
+						<div class="input-group-icon mt-10">
+								<div class="icon"><i class="ti-map" aria-hidden="true"></i></div>
+								<div class="form-select" id="default-select2">
+									<select name="name">
+										<option  disabled selected>Select Name</option>
+										{% for Login in names %}
+										<option value="{{Login.id}}">{{Login.firstname}} {{Login.secondname}}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+
+
+							<br><br>
+							<button type="submit" value="submit" class="btn primary-btn">
+                  Save
+                </button>
+						</form>
+					</div>
+
+
+<br><br>
+
+    </section>
+{% endblock %}

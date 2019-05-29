@@ -1,0 +1,68 @@
+{% extends "base2.html" %}
+{% block content %}
+{% load static %}
+
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Add Offers</h2>
+                <div class="page_link">
+                  <a href={% url 'adminhomepage' %}>Home</a>
+                  <a href={% url 'offers' %}>Offers</a>
+                  <a href="">Add Offers</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sample-text-area">
+		<div class="container">
+
+     <div class="section-top-border">
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<u>{{msg}}</u>
+						<h3 class="mb-30 title_color">Add New Offers</h3>
+						<form method="POST" action="" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="mt-10">
+								<input type="text" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title'"
+								 required class="single-input">
+							</div>
+							<div class="mt-10">
+								<textarea name="description" class="single-textarea" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'"
+								 required></textarea>
+							</div>
+
+							<div class="mt-10">
+								Choose an image
+								<input type="file" name="image" placeholder="Image" onfocus="this.placeholder = ''" onblur="this.placeholder = ''"
+								 required class="single-input">
+							</div>
+							<br><br>
+							<button type="submit" value="submit" class="btn primary-btn">
+                  Save
+                </button>
+
+							<!-- <div class="button-group-area mt-40">
+				
+				<a href="#" class="genric-btn success circle arrow">Save<span class="ti-arrow-right"></span></a>
+				
+						</div> -->
+						</form>
+					</div>
+
+
+
+
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "userbase2.html" %}
+{% block content %}
+ <title>Points</title>
+
+
+  <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="banner_content text-center">
+                <h2>Points</h2>
+                <div class="page_link">
+                  <a href={% url 'userhomepage' %}>Home</a>
+                  <a href={% url 'user_points' %}>Points</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="">
+    	<br>
+      <div class="container">
+        <div class="main_title">
+            </div> 
+            <h4></h4>
+             	
+        <div class="">
+     <h3 class="mb-30 title_color">Points</h3>
+     <div class="col-md-12 text-right">
+        	
+		</div>
+        <div class="progress-table-wrap">
+          <div class="progress-table">
+            <div class="table-head">
+              <!-- <div class="serial"></div> -->
+              <div class="country">Names</div>
+              <div class="visit">Title</div>
+              <div class="visit">Point</div>
+              <div class="visit">Date</div>
+              <div class="percentage"></div>
+            </div>
+            {{msg}}
+            {% for Points in pointss %}
+            <div class="table-row">
+              <div class="country">{{Points.name}}</div>
+              <div class="visit">{{Points.title}}</div>
+               <div class="visit">{{Points.point}}</div>
+              <div class="visit">{{Points.date}}</div>
+              <div class="percentage">
+								<div class="progress">
+									<div class="progress-bar color-2" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0"
+									 aria-valuemax="100"></div>
+              </div>
+            </div>
+        </div>
+             {% endfor %}
+
+
+<br><br>
+        </div>
+    </section>
+{% endblock %}
